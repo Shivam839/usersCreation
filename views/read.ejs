@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="w-full h-full bg-zinc-400 p-10 flex flex-col ">
+        <a href="/" class="text-blue-500 mb-10">Back to Home page</a>
+        <h1 class="text-3xl mb-3 tracking-tighter underline"> User's Info:- </h1>
+        <div class="user flex flex-wrap gap-10 align-center justify-center">
+
+                <% if(usersdata.length<=0){%>
+                    <h3 class="text-3xl text-red-600 mt-3 tracking-tighter text-center">No User has been updated</h3>
+               <% } else {%>
+                <% usersdata.map((data)=>{%>
+
+                    <div class="user max-w-72 p-1 bg-zinc-200 rounder-lg">
+                        <div class="w-full h-52 rounded-lg bg-zinc-800">
+                            <img class="w-full h-full" src="<%=data.imageUrl%>" alt="">
+                        </div>
+                        <h3 class="text-xl mt-3 tracking-tighter text-center"><%=data.name%></h3>
+                        <h5 class="text-zinc-500 text-center"><%=data.email%></h5>
+                        <div class="flex justify-around align-center mt-10">
+                            <a href="/edit/<%=data._id%>" class="text-blue-400"> Edit</a>
+                            <a href="/delete/<%=data._id%>" class="text-red-400">Delete</a>
+                        </div>
+                </div> 
+              <%  }) }%>
+                     
+                    <!-- <div class="user max-w-72 p-1 bg-zinc-200 rounder-lg">
+                        <div class="w-full h-52 rounded-lg bg-zinc-800">
+                        </div>
+                        <h3 class="text-xl mt-3 tracking-tighter text-center">Shivam Pandey</h3>
+                        <h5 class="text-zinc-500 text-center">shivampandey839@gmail.com</h5>
+                        <div class="flex justify-around align-center mt-10">
+                            <a href="" class="text-blue-400"> Edit</a>
+                            <a href="" class="text-red-400">Delete</a>
+                        </div>
+                </div>   -->
+            </div>
+        </div>
+        </body>
+</html>
